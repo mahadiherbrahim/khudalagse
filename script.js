@@ -2,11 +2,15 @@ const searchMeal = () => {
     const searchItem = document.getElementById('searchItem').value
     loadMeal(searchItem);
 };
+
+
 const loadMeal = searchItem => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${searchItem}`)
         .then(response => response.json())
         .then(data => displayMeal(data.meals))
+        .catch(error => alert("Please Search Again!"))
 };
+
 
 const displayMeal = meals => {
     const ParentNode = document.getElementById('mealContainer')
@@ -25,10 +29,12 @@ const displayMeal = meals => {
     });
 }
 
+
 const mealDetails = dishName => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dishName}`)
         .then(resp => resp.json())
         .then(data => displayMealDetails(data.meals[0]))
+        .catch(error => alert("There have no information about this Meal"))
 
 }
 
