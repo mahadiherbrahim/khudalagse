@@ -8,7 +8,7 @@ const loadMeal = searchItem => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${searchItem}`)
         .then(response => response.json())
         .then(data => displayMeal(data.meals))
-        .catch(error => alert("Please Search Valid Keyword OR First Latter Of Your Meal! Thank You"))
+        .catch(error => alert("Please Try Again"))
 };
 
 
